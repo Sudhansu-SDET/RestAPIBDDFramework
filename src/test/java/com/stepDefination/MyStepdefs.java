@@ -1,5 +1,7 @@
 package com.stepDefination;
 
+import Resources.TestDataBuild;
+import Resources.Utils;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,52 +17,34 @@ import org.junit.Assert;
 import pojo.AddPlace;
 import pojo.Location;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class MyStepdefs {
+public class MyStepdefs extends Utils {
     RequestSpecification request;
     ResponseSpecification responsespecbuilder;
     Response response;
+    TestDataBuild data = new TestDataBuild();
 
     @Given("Add Place Payload")
-    public void addPlacePayload() {
+    public void addPlacePayload() throws FileNotFoundException {
 
-        System.out.println("hello");
+        System.out.println("given");
 
-        //body creation using POJO class and serialization
-        AddPlace addPlace = new AddPlace();
-        addPlace.setAccuracy(50);
-        addPlace.setAddress("29, side layout, cohen 09");
-        addPlace.setLanguage("French-IN");
-        addPlace.setName("ricky new home");
-        addPlace.setPhone_number("123456789");
+        request = given().spec(Utils.requestSpecification()).body(data.addPlacePayload()); // given
 
-        List<String> myListTypes = new ArrayList<String>();
-        myListTypes.add("shoe park");
-        myListTypes.add("shop");
-        addPlace.setTypes(myListTypes);
 
-        Location loc = new Location();
-        loc.setLat(-38.383494);
-        loc.setLng(33.427362);
-        addPlace.setLocation(loc);
-
-        RequestSpecification requestspecbuilder = new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
-                .addQueryParam("key", "qaclick123").setContentType(ContentType.JSON).build();// given
-
-        request = given().spec(requestspecbuilder).body(addPlace); // given
-
-        responsespecbuilder = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 
     }
 
     @When("user calls AddPlace API with POST http request")
     public void userCallsAPIWithPOSTHttpRequest() {
-        System.out.println("ricky");
+        System.out.println("when");
+        responsespecbuilder = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
         response = request // when
                 .when().post("/maps/api/place/add/json")
                 .then().spec(responsespecbuilder).extract().response();
@@ -68,9 +52,9 @@ public class MyStepdefs {
     }
 
     @Then("the API call is success with status code {int}")
-    public void theAPICallIsSuccessWithStatusCode(int arg0) {
+    public void theAPICallIsSuccessWithStatusCode(int code) {
         System.out.println(response.getStatusCode());
-        assertEquals(200, response.getStatusCode());
+        assertEquals(code, response.getStatusCode());
 
     }
 
