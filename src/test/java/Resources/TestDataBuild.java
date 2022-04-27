@@ -8,14 +8,14 @@ import java.util.List;
 
 public class TestDataBuild {
 
-    public AddPlace addPlacePayload(){
+    public AddPlace addPlacePayload(String name,String language,String address){
 
         //body creation using POJO class and serialization
         AddPlace addPlace = new AddPlace();
         addPlace.setAccuracy(50);
-        addPlace.setAddress("29, side layout, cohen 09");
-        addPlace.setLanguage("French-IN");
-        addPlace.setName("ricky new home");
+        addPlace.setAddress(address);
+        addPlace.setLanguage(language);
+        addPlace.setName(name);
         addPlace.setPhone_number("123456789");
 
         List<String> myListTypes = new ArrayList<String>();
@@ -29,6 +29,12 @@ public class TestDataBuild {
         addPlace.setLocation(loc);
 
         return addPlace;
+    }
+
+    public String deletePlacePayload(String placeid){
+        return "{\n" +
+                "\"place_id\":\""+placeid+"\"\n" +
+                "}";
     }
 
 }
