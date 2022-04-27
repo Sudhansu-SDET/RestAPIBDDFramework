@@ -1,0 +1,259 @@
+[
+  {
+    "line": 4,
+    "elements": [
+      {
+        "start_timestamp": "2022-04-27T16:02:57.811Z",
+        "line": 17,
+        "name": "validate add place api for sp1",
+        "description": "",
+        "id": "validate-rest-apis;validate-add-place-api-for-\u003cname\u003e;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 4754557000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Add Place Payload with sp1 , hindi , hyderabad",
+            "match": {
+              "arguments": [
+                {
+                  "val": "sp1",
+                  "offset": 23
+                },
+                {
+                  "val": "hindi",
+                  "offset": 29
+                },
+                {
+                  "val": "hyderabad",
+                  "offset": 37
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.addPlacePayloadWithNameLanguageAddress(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4514350600,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "user calls \"addPlaceAPI\" with \"POST\" http request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"addPlaceAPI\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"POST\"",
+                  "offset": 30
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.userCallsAPIWithHttpRequest(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "the API call is success with status code 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 41
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.theAPICallIsSuccessWithStatusCode(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 2297413700,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "\"status\" in response body is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"status\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 29
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.inResponseBodyIs(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 46878000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "\"scope\" in response body is \"APP\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"scope\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"APP\"",
+                  "offset": 28
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.inResponseBodyIs(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 649303700,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "verify placeID created above maps to \"sp1\" in \"getPlaceAPI\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"sp1\"",
+                  "offset": 37
+                },
+                {
+                  "val": "\"getPlaceAPI\"",
+                  "offset": 46
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.verifyPlaceIDCreatedAboveMapsToIn(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@AddPlace"
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-04-27T16:03:10.293Z",
+        "before": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.stepDefination.Hooks.beforeScenario()"
+            }
+          }
+        ],
+        "line": 22,
+        "name": "validate delete place api",
+        "description": "",
+        "id": "validate-rest-apis;validate-delete-place-api",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 15598200,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "Delete Place Payload",
+            "match": {
+              "location": "com.stepDefination.MyStepdefs.deletePlacePayload()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 321950400,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "user calls \"deletePlaceAPI\" with \"DELETE\" http request",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"deletePlaceAPI\"",
+                  "offset": 11
+                },
+                {
+                  "val": "\"DELETE\"",
+                  "offset": 33
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.userCallsAPIWithHttpRequest(java.lang.String,java.lang.String)"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "the API call is success with status code 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 41
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.theAPICallIsSuccessWithStatusCode(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 15657200,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "\"status\" in response body is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"status\"",
+                  "offset": 0
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 29
+                }
+              ],
+              "location": "com.stepDefination.MyStepdefs.inResponseBodyIs(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@DeletePlace"
+          }
+        ]
+      }
+    ],
+    "name": "Validate REST APIs",
+    "description": "",
+    "id": "validate-rest-apis",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/placeValidateTest.feature",
+    "tags": []
+  }
+]
